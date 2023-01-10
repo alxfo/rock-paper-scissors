@@ -16,6 +16,20 @@ playerSelection = playerSelection.toLowerCase();
 playerSelection = playerSelection[0]
 console.log(playerSelection);
 
-// compare user input with computer
+// declare function to compare user input with computer
+function playRPS(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return 'It\'s a tie!';
+    } else if (playerSelection === 'r' && computerSelection === 's'){
+        return 'You win!';
+    } else if (playerSelection === 'p' && computerSelection === 'r'){
+        return 'You win!';
+    } else if (playerSelection === 's' && computerSelection === 'p'){
+        return 'You win!';
+    } else {
+        return 'You lose!';
+    }
+}
 
-// return the results
+// call the play function
+console.log(playRPS(playerSelection, computerSelection));
