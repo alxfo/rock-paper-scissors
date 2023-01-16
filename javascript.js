@@ -9,6 +9,8 @@ let computerChoice = options[Math.floor(Math.random() * options.length)];
 
 // function to play a single round and increment the appropriate tracker
 function playRPS(playerSelection, computerSelection) {
+    console.log(`You picked ${playerSelection}`);
+    console.log(`The AI picked ${computerSelection}`)
     if (playerSelection === computerSelection) {
         console.log('It\'s a tie!');
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
@@ -24,15 +26,16 @@ function playRPS(playerSelection, computerSelection) {
         losses += 1;
         console.log('You lose!');
     }
-    console.log(wins)
-    console.log(losses)
+    console.log(`Wins: ${wins}`)
+    console.log(`Losses: ${losses}`)
     computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
-let rockBtn = document.querySelector('#rock');
-let paperBtn = document.querySelector('#paper');
-let scissorsBtn = document.querySelector('#scissors');
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
 
 rockBtn.addEventListener('click', () => playRPS('rock', computerChoice));
-paperBtn.addEventListener('click', () => playRPS('rpaper', computerChoice));
+paperBtn.addEventListener('click', () => playRPS('paper', computerChoice));
 scissorsBtn.addEventListener('click', () => playRPS('scissors', computerChoice));
