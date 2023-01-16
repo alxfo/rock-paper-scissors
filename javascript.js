@@ -5,6 +5,8 @@ const options = ['rock', 'paper', 'scissors']
 let wins = 0
 let losses = 0
 
+let computerChoice = options[Math.floor(Math.random() * options.length)];
+
 // function to play a single round and increment the appropriate tracker
 function playRPS(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
@@ -22,24 +24,15 @@ function playRPS(playerSelection, computerSelection) {
         losses += 1;
         console.log('You lose!');
     }
+    console.log(wins)
+    console.log(losses)
+    computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
-// function to play 5 rounds and declare whether you win or lose
-function game(){
-    for (let i = 0; i < 5; i++) {
-        console.log(`Round ${i+1}`)
-        let computerSelection = options[Math.floor(Math.random() * options.length)];
-        let playerSelection = prompt('Please choose: Rock, Paper or Scissors?');
-        playerSelection = playerSelection.toLowerCase();
-        playRPS(playerSelection, computerSelection)
-    }
-    if (wins > losses) {
-        console.log('You win the game!');
-    } else if (wins < losses) {
-        console.log('You lose the game!');
-    } else {
-        console.log('You tie the game!');
-    }
-}
+let rockBtn = document.querySelector('#rock');
+let paperBtn = document.querySelector('#paper');
+let scissorsBtn = document.querySelector('#scissors');
 
-game()
+rockBtn.addEventListener('click', () => playRPS('rock', computerChoice));
+paperBtn.addEventListener('click', () => playRPS('rpaper', computerChoice));
+scissorsBtn.addEventListener('click', () => playRPS('scissors', computerChoice));
