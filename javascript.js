@@ -2,7 +2,8 @@
 const options = ['rock', 'paper', 'scissors']
 let computerChoice = options[Math.floor(Math.random() * options.length)];
 
-let rounds = 5
+// points to play until
+let maxPoints = 5
 
 // win and loss trackers
 let wins = 0
@@ -31,7 +32,7 @@ function playRPS(playerSelection, computerSelection) {
     winsDiv.textContent=`Wins: ${wins}`
     lossesDiv.textContent=`Losses: ${losses}`
 
-    if (wins === rounds || losses === rounds) {
+    if (wins === maxPoints || losses === maxPoints) {
         rockBtn.disabled = true;
         paperBtn.disabled = true;
         scissorsBtn.disabled = true;
