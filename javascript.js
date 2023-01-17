@@ -14,7 +14,7 @@ let losses = 0
 function playRPS(playerSelection, computerSelection) {
     movesDiv.textContent=`${playerSelection} vs. ${computerSelection}!`;
     if (playerSelection === computerSelection) {
-        resultsDiv.textContent='The round is tied!';
+        resultsDiv.textContent='It\'s a tie!';
     } else if (playerSelection === 'rock' && computerSelection === 'scissors'){
         wins += 1;
         resultsDiv.textContent='You win the round!';
@@ -29,14 +29,13 @@ function playRPS(playerSelection, computerSelection) {
         resultsDiv.textContent='You lose the round!';
     }
 
+    winsTitle.textContent='Wins'
+    lossTitle.textContent='Losses'
     winsDiv.textContent=wins
     lossesDiv.textContent=losses
     computerChoice = options[Math.floor(Math.random() * options.length)];
 
-    if (wins === maxPoints || losses === maxPoints) {
-        rockBtn.disabled = true;
-        paperBtn.disabled = true;
-        scissorsBtn.disabled = true;
+    if (wins >= maxPoints || losses >= maxPoints) {
 
         if (wins > losses) {
             resultsDiv.textContent='YOU WIN'
@@ -56,10 +55,6 @@ function resetGame() {
     winsDiv.textContent='0';
     lossesDiv.textContent='0';
 
-    rockBtn.disabled = false;
-    paperBtn.disabled = false;
-    scissorsBtn.disabled = false;
-
     computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
@@ -68,12 +63,14 @@ const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const resetBtn = document.querySelector('#reset');
 
+const movesDiv = document.querySelector('#moves');
+const resultsDiv = document.querySelector('#results');
+const winsTitle = document.querySelector('#wins-title');
+const winsDiv = document.querySelector('#wins-tracker');
+const lossTitle = document.querySelector('#loss-title');
+const lossesDiv = document.querySelector('#loss-tracker');
+
 rockBtn.addEventListener('click', () => playRPS('rock', computerChoice));
 paperBtn.addEventListener('click', () => playRPS('paper', computerChoice));
 scissorsBtn.addEventListener('click', () => playRPS('scissors', computerChoice));
 resetBtn.addEventListener('click', () => resetGame());
-
-const movesDiv = document.querySelector('#moves');
-const resultsDiv = document.querySelector('#results');
-const winsDiv = document.querySelector('#wins-tracker');
-const lossesDiv = document.querySelector('#loss-tracker');

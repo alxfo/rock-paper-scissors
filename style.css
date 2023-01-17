@@ -28,6 +28,7 @@ img {
     display: flex;
     margin-bottom: 16px;
     gap: 16px;
+    min-height: 40px;
 }
 
 #wins-div {
