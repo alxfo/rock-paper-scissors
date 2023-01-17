@@ -29,8 +29,9 @@ function playRPS(playerSelection, computerSelection) {
         resultsDiv.textContent='You lose the round!';
     }
 
-    winsDiv.textContent=`Wins: ${wins}`
-    lossesDiv.textContent=`Losses: ${losses}`
+    winsDiv.textContent=wins
+    lossesDiv.textContent=losses
+    computerChoice = options[Math.floor(Math.random() * options.length)];
 
     if (wins === maxPoints || losses === maxPoints) {
         rockBtn.disabled = true;
@@ -43,8 +44,6 @@ function playRPS(playerSelection, computerSelection) {
             resultsDiv.textContent='YOU LOSE'
         }
     }
-
-    computerChoice = options[Math.floor(Math.random() * options.length)];
 }
 
 // function to reset the game
@@ -52,10 +51,10 @@ function playRPS(playerSelection, computerSelection) {
 function resetGame() {
     wins = 0
     losses = 0
-    movesDiv.textContent='Choose your move!';
-    resultsDiv.textContent='Awaiting move';
-    winsDiv.textContent='Wins: 0';
-    lossesDiv.textContent='Losses: 0';
+    movesDiv.textContent='';
+    resultsDiv.textContent='';
+    winsDiv.textContent='0';
+    lossesDiv.textContent='0';
 
     rockBtn.disabled = false;
     paperBtn.disabled = false;
@@ -76,5 +75,5 @@ resetBtn.addEventListener('click', () => resetGame());
 
 const movesDiv = document.querySelector('#moves');
 const resultsDiv = document.querySelector('#results');
-const winsDiv = document.querySelector('#wins');
-const lossesDiv = document.querySelector('#losses');
+const winsDiv = document.querySelector('#wins-tracker');
+const lossesDiv = document.querySelector('#loss-tracker');

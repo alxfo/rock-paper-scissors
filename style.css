@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#results-div {
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60px;
+    gap: 16px;
+}
+
+#moves-div {
+    margin-top: 250px;
+    display: flex;
+    gap: 16px;
+}
+
+#score-div {
+    margin-top: 100px;
+    display: flex;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+#wins-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#losses-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
