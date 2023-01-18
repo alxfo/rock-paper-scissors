@@ -20,6 +20,10 @@ img:active {
     margin: 16px;
 }
 
+.transparent {
+    opacity: 0.2;
+}
+
 #results-div {
     margin-top: 250px;
     display: flex;

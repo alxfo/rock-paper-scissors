@@ -37,6 +37,13 @@ function playRPS(playerSelection, computerSelection) {
 
     if (wins >= maxPoints || losses >= maxPoints) {
 
+        rockImg.classList.add('transparent');
+        paperImg.classList.add('transparent');
+        scissorsImg.classList.add('transparent');
+        rockBtn.removeEventListener('click', pickRock)
+        paperBtn.removeEventListener('click', pickPaper)
+        scissorsBtn.removeEventListener('click', pickScissors)
+
         if (wins > losses) {
             resultsDiv.textContent='YOU WIN'
         } else {
@@ -54,6 +61,12 @@ function resetGame() {
     resultsDiv.textContent='';
     winsDiv.textContent='0';
     lossesDiv.textContent='0';
+    rockImg.classList.remove('transparent');
+    paperImg.classList.remove('transparent');
+    scissorsImg.classList.remove('transparent');
+    rockBtn.addEventListener('click', pickRock);
+    paperBtn.addEventListener('click', pickPaper);
+    scissorsBtn.addEventListener('click', pickScissors);
 
     computerChoice = options[Math.floor(Math.random() * options.length)];
 }
@@ -69,8 +82,15 @@ const winsTitle = document.querySelector('#wins-title');
 const winsDiv = document.querySelector('#wins-tracker');
 const lossTitle = document.querySelector('#loss-title');
 const lossesDiv = document.querySelector('#loss-tracker');
+const rockImg = document.querySelector('#rockImg');
+const paperImg = document.querySelector('#paperImg');
+const scissorsImg = document.querySelector('#scissorsImg');
 
-rockBtn.addEventListener('click', () => playRPS('rock', computerChoice));
-paperBtn.addEventListener('click', () => playRPS('paper', computerChoice));
-scissorsBtn.addEventListener('click', () => playRPS('scissors', computerChoice));
+const pickRock = () => playRPS('rock', computerChoice)
+const pickPaper = () => playRPS('paper', computerChoice)
+const pickScissors = () => playRPS('scissors', computerChoice)
+
+rockBtn.addEventListener('click', pickRock);
+paperBtn.addEventListener('click', pickPaper);
+scissorsBtn.addEventListener('click', pickScissors);
 resetBtn.addEventListener('click', () => resetGame());
