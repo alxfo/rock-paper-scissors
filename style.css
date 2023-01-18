@@ -2,10 +2,22 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    background: #e6e0c0;
 }
 
 img {
     max-width: 400px;
+    margin: 16px;
+}
+
+img:hover {
+    max-width: 410px;
+    margin: 11px;
+}
+
+img:active {
+    max-width: 400px;
+    margin: 16px;
 }
 
 #results-div {
@@ -20,7 +32,7 @@ img {
 #moves-div {
     margin-top: 100px;
     display: flex;
-    gap: 16px;
+    justify-content: center;
 }
 
 #score-div {
